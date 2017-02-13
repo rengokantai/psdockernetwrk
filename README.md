@@ -33,3 +33,15 @@ inspect
 ```
 docker network inspect ps-bridge
 ```
+
+
+exercise
+```
+docker exec -it c1 sh
+```
+in the container
+```
+ip a
+ping 10.0.0.3
+ping c2
+```
