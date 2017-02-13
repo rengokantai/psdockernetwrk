@@ -45,3 +45,23 @@ ip a
 ping 10.0.0.3
 ping c2
 ```
+###3 Multi-host Overlay Networking
+node1
+```
+docker swarm init --advertise-addr 10.17.0.5
+ufw allow 2377
+```
+
+node1
+```
+docker node ls
+docker network ls
+```
+create an overlay network
+```
+docker network create -d overlay ps-over
+```
+```
+docker service create --name ps-svc --network ps-over --replicas 2 alpine sleep 1d
+docker service ps ps-svc
+```
