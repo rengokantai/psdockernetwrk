@@ -65,3 +65,7 @@ docker network create -d overlay ps-over
 docker service create --name ps-svc --network ps-over --replicas 2 alpine sleep 1d
 docker service ps ps-svc
 ```
+###5 Joining Existing Networks with the IPVLAN Driver
+```
+docker network create -d ipvlan --subnet=192.168.1.0/24 --gateway=192.168.1.0/28 -o ipvlan_mode=l2 -o parent=eth0 ps-ip
+```
